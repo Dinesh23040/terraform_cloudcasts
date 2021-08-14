@@ -1,0 +1,55 @@
+terraform{
+	required_providers{
+	aws={
+		source="hashicorp/aws"
+		version="3.54.0"
+	    }	
+	}
+}
+
+provider "aws" {
+	profile="default"
+	region="ap-south-1"
+}
+
+data "aws_ami" "app"{
+	most_recent=true
+
+	filter {
+		name ="state"
+		values=["available"]
+	}
+
+
+	filter {
+
+		name ="tag:component"
+		values=["app"]
+	      }
+
+	filter {
+		
+		name="tag:project"
+		values=["cloudcasts"]
+	}
+
+	filter {
+		
+		name="tag:Environment"
+		values=["staging"]
+	}
+
+
+	owners=["self"] # canonical official id
+}
+
+resource "aws_instance" "cloudcasts_web" {
+
+	ami=data.aws_ami.app.id
+	instance_type="t2.mciro"
+	
+	root_block_device{
+
+	 volume_size=8 #GB
+	}
+}
