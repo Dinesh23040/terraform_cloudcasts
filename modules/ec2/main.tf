@@ -18,10 +18,10 @@ resource "aws_instance" "cloudcasts_web" {
    subnet_id=random_shuffle.result[0] #TODO: which subnet
    vpc_security_group_ids=var.security_groups
 
-lifecycle{
-	create_before_destroy=true
-}
-        tags =merge({
+	lifecycle{
+		#create_before_destroy=true
+	}
+		tags =merge({
                 Name ="cloudcasting-${var.infra_env}-web"
                 Role =var.infra_role
 		Project = "cloudcasts.io"
