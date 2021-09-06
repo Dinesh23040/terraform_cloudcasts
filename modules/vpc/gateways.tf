@@ -70,13 +70,13 @@ resource "aws_nat_gateway" "ngw" {
 resource "aws_route_table" "public" {
 	vpc_id=aws_vpc.vpc.id
 	
-	ags={
-				Name ="cloudcasts-${var.infra_env}-vpc"
+	tags={
+		Name ="cloudcasts-${var.infra_env}-vpc"
                 Project = "cloudcasts.io"
                 Environment =var.infra_env
                 VPC=aws_vpc.vpc.id
-				ManagedBy ="terraform"	
-				Role="public"
+		ManagedBy ="terraform"	
+		Role="public"
 	}
 
 }
@@ -86,13 +86,13 @@ resource "aws_route_table" "public" {
 resource "aws_route_table" "public" {
 	vpc_id=aws_vpc.vpc.id
 	
-	ags={
-				Name ="cloudcasts-${var.infra_env}-vpc"
+	tags={
+		Name ="cloudcasts-${var.infra_env}-vpc"
                 Project = "cloudcasts.io"
                 Environment =var.infra_env
                 VPC=aws_vpc.vpc.id
-				ManagedBy ="terraform"	
-				Role="private"
+		ManagedBy ="terraform"	
+		Role="private"
 	}
 
 }
