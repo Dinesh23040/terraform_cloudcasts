@@ -33,7 +33,7 @@ variable "private_subnet_numbers"{
 		default = {
 		
 			"us-east-2a"=4
-			"us-east-2g"=5
+			"us-east-2b"=5
 			"us-east-2c"=6
 		}
 
