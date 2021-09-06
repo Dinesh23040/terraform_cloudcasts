@@ -5,7 +5,7 @@ terraform {
       version = "3.54.0"
     }
   }
-}
+
 backend "s3"{
 
 	bucket="terraformremotestate1"
@@ -13,6 +13,8 @@ backend "s3"{
 	profile = "default"
         region  = "ap-south-1"
 	dynamodb_table="cloudcasts-terraform-course"
+	
+	}
 	
 }
 
