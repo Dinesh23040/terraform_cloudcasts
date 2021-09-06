@@ -83,7 +83,7 @@ resource "aws_route_table" "public" {
 
 # private Route table (Subnets without IGW connection)
 
-resource "aws_route_table" "public" {
+resource "aws_route_table" "private" {
 	vpc_id=aws_vpc.vpc.id
 	
 	tags={
@@ -140,24 +140,3 @@ resource "aws_route_table_association" "private" {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
