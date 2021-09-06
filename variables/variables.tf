@@ -19,7 +19,7 @@ variable "infra_env"{
 	description ="infrastructure environment"
 }
 
-varaible default_region {
+variable default_region {
 
 	type=string
 	description="the region this infrastructure is in"
@@ -70,7 +70,7 @@ data "aws_ami" "app" {
 resource "aws_instance" "cloudcasts_web" {
 
   ami           = data.aws_ami.app.id
-  instance_type = instance_size
+  instance_type = var.instance_size
 
   root_block_device {
 
